@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="0f6a1d9c-3536-4361-9de0-828a7ce85663" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="domino-labs-sys-apiFlow" doc:id="b76441fe-f7c5-466c-aa78-e4a7f129a4f3" >
+		<http:listener doc:name="Listener" doc:id="96b49ba6-9b68-453c-a8d5-97fcdcb922cd" config-ref="HTTP_Listener_config" path="/domino"/>
+		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="155a0154-1f3a-469c-a80a-72a59b039596" />
+		<logger level="INFO" doc:name="Logger" doc:id="17f5d7a8-597f-4634-8663-c730945b6d8d" message="MessagDevelopment"/>
+	</flow>
+</mule>
